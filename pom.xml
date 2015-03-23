@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>am.ik.archetype</groupId>
+    <artifactId>maven-reactjs-blank</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>React.js Blank Project (from https://github.com/making/maven-reactjs-blank)</name>
+    <licenses><!-- DELETE THIS LINE -->
+        <license><!-- DELETE THIS LINE -->
+            <name>Apache License, Version 2.0</name><!-- DELETE THIS LINE -->
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url><!-- DELETE THIS LINE -->
+            <distribution>repo</distribution><!-- DELETE THIS LINE -->
+        </license><!-- DELETE THIS LINE -->
+    </licenses><!-- DELETE THIS LINE -->
+    <scm><!-- DELETE THIS LINE -->
+        <url>https://github.com/making/maven-reactjs-blank</url><!-- DELETE THIS LINE -->
+        <connection>scm:git:git@github.com:making/maven-reactjs-blank.git</connection><!-- DELETE THIS LINE -->
+        <developerConnection>scm:git:git@github.com:making/maven-reactjs-blank.git</developerConnection><!-- DELETE THIS LINE -->
+    </scm><!-- DELETE THIS LINE -->
+    <url>https://github.com/making/maven-reactjs-blank</url><!-- DELETE THIS LINE -->
+    <description>Blank Project for React.js</description><!-- DELETE THIS LINE -->
+    <developers><!-- DELETE THIS LINE -->
+        <developer><!-- DELETE THIS LINE -->
+            <id>making</id><!-- DELETE THIS LINE -->
+            <name>Toshiaki Maki</name><!-- DELETE THIS LINE -->
+            <email>makingx@gmail.com</email><!-- DELETE THIS LINE -->
+            <url>https://twitter.com/making</url><!-- DELETE THIS LINE -->
+        </developer><!-- DELETE THIS LINE -->
+    </developers><!-- DELETE THIS LINE -->
+    <distributionManagement><!-- DELETE THIS LINE -->
+        <snapshotRepository><!-- DELETE THIS LINE -->
+            <id>ossrh</id><!-- DELETE THIS LINE -->
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url><!-- DELETE THIS LINE -->
+        </snapshotRepository><!-- DELETE THIS LINE -->
+        <repository><!-- DELETE THIS LINE -->
+            <id>ossrh</id><!-- DELETE THIS LINE -->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url><!-- DELETE THIS LINE -->
+        </repository><!-- DELETE THIS LINE -->
+    </distributionManagement><!-- DELETE THIS LINE -->
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>gulp</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="Gulp!"/>
+                                <exec executable="gulp">
+                                    <arg value="build"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/META-INF/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>dest</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
